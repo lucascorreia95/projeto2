@@ -7,6 +7,7 @@ import Content from '../common/template/content'
 import Tabs from '../common/tab/tabs'
 
 import Button from './ReportCreditsButton'
+import ReportCreditsList from './ReportCreditsList'
 
 class ReportCredits extends Component {
     render() {
@@ -16,6 +17,7 @@ class ReportCredits extends Component {
                 <Content>
                     <Tabs>
                         <Button/>
+                        <ReportCreditsList/>
                     </Tabs>
                 </Content>
             </div>
