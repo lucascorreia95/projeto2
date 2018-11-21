@@ -8,10 +8,10 @@ class ReportList extends Component {
                 <table className='table'>
                     <thead>
                         <tr>
-                            <th>Nome</th>
                             <th>Mes</th>
                             <th>Ano</th>
-                            <th className="table-actions">Acoes</th>
+                            <th>Nome</th>
+                            <th>Valor</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,29 +21,37 @@ class ReportList extends Component {
             </div>
         )
     }
-
+    
     renderList() {
         const list = this.props.reportCredits || []
-        let listCredits = [
-            {
-                name:"",
-                valor:""
-            }
-        ]
-        list.map((item, index) => {
+        
+        let listCredits = []
+        let credit= {
+            name: "",
+            valor: "",
+            mes: "",
+            ano:""
+        }
+        
+        list.map((item) => {
             for (var i = 0; i < item.credits.length; i++) {
-                console.log(item.credits[i].name)
-                    
+                credit = {
+                    name:item.credits[i].name,
+                    valor:item.credits[i].value,
+                    mes: item.name,
+                    ano: item.year
+                }
+                
                 listCredits.push(credit)
+
             }
         })
-        console.log(listCredits)
         return listCredits.map((item, index) => (
             <tr key={index}>
-                <td>{item}</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
+                <td>{item.mes}</td>
+                <td>{item.ano}</td>
+                <td>{item.name}</td>
+                <td>{item.valor}</td>
             </tr>
         ))
     }

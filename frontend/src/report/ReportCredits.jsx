@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 
 import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
 import Tabs from '../common/tab/tabs'
 
+import Input from './ReportCreditsInput'
 import Button from './ReportCreditsButton'
 import ReportCreditsList from './ReportCreditsList'
 
@@ -16,6 +15,7 @@ class ReportCredits extends Component {
                 <ContentHeader title="Ciclos de Pagamento" small="Relatorio de Creditos" />
                 <Content>
                     <Tabs>
+                        <Input />
                         <Button/>
                         <ReportCreditsList/>
                     </Tabs>
