@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
-import Tabs from '../common/tab/tabs'
 
 import Input from './ReportCreditsInput'
 import Button from './ReportCreditsButton'
@@ -14,11 +13,13 @@ class ReportCredits extends Component {
             <div>
                 <ContentHeader title="Ciclos de Pagamento" small="Relatorio de Creditos" />
                 <Content>
-                    <Tabs>
-                        <Input />
+                    <div className= "report__container">
+                        <h2>Busque os Creditos por Nome do Mes e/ou Ano</h2>
+                        <Input type="MONTH_CHANGED" label="Mes" inputType="text" />
+                        <Input type="YEAR_CHANGED" label="Ano" inputType="number" />
                         <Button/>
                         <ReportCreditsList/>
-                    </Tabs>
+                    </div>
                 </Content>
             </div>
         )

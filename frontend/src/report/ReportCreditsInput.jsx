@@ -6,9 +6,13 @@ import { connect } from 'react-redux'
 class Input extends Component {
     render() {
         return(
-            <input
-                className='form-control'
-                onChange={this.props.changeDescription} />
+            <div>
+                <label>{this.props.label}</label>
+                <input
+                    className='form-control'
+                    type={this.props.inputType}
+                    onChange={(event) => this.props.changeDescription(event,this.props.type)} />
+            </div>
         )
     }
 }

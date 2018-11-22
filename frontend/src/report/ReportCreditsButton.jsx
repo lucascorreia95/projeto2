@@ -7,7 +7,7 @@ class Button extends Component {
     render() {
         return(
             <button className="btn btn-primary"
-                onClick={() => this.props.getList(this.props.description)}>
+                onClick={() => this.props.getList(this.props.month, this.props.year)}>
                 Buscar
             </button>
         )
@@ -15,5 +15,5 @@ class Button extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({getList}, dispatch)
-const mapStateToProps = state => ({description: state.reportCredits.description})
+const mapStateToProps = state => ({month: state.reportCredits.month, year: state.reportCredits.year})
 export default connect(mapStateToProps, mapDispatchToProps)(Button)

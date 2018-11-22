@@ -3,23 +3,29 @@ import { connect } from 'react-redux'
 
 class ReportList extends Component {
     render() {
-        return(
-            <div>
-                <table className='table'>
-                    <thead>
-                        <tr>
-                            <th>Mes</th>
-                            <th>Ano</th>
-                            <th>Nome</th>
-                            <th>Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.renderList()}
-                    </tbody>
-                </table>
-            </div>
-        )
+        if (this.props.reportCredits.length) {
+            return(
+                <div>
+                    <table className='table'>
+                        <thead>
+                            <tr>
+                                <th>Mes</th>
+                                <th>Ano</th>
+                                <th>Nome</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.renderList()}
+                        </tbody>
+                    </table>
+                </div>
+            )
+        } else if (this.props.click) {
+            return <h3>Nenhum Credito Encontrado!</h3>
+        } else{
+            return null
+        }
     }
     
     renderList() {
@@ -57,5 +63,5 @@ class ReportList extends Component {
     }
 }
 
-const mapStateToProps = state => ({reportCredits: state.reportCredits.list})
+const mapStateToProps = state => ({reportCredits: state.reportCredits.list, click: state.reportCredits.click})
 export default connect(mapStateToProps, null)(ReportList)
